@@ -149,7 +149,29 @@ const findByIdMugiwaraService = (paramId) => {
   return mugiwaras.find((mugiwara) => mugiwara.id === paramId);
 };
 
+const createMugiwaraService = (newMugiwara) => {
+  const newId = mugiwaras.length + 1;
+  newMugiwara.id = newId;
+  mugiwaras.push(newMugiwara);
+  return newMugiwara;
+};
+
+const updateMugiwaraService = (id, mugiwaraEdited) => {
+  mugiwaraEdited['id'] = id;
+  const mugiwaraIndex = mugiwaras.findIndex((mugiwara) => mugiwara.id == id);
+  mugiwaras[mugiwaraIndex] = mugiwaraEdited;
+  return mugiwaraEdited;
+};
+
+const deleteMugiwaraService = (id) => {
+  const mugiwaraIndex = mugiwaras.findIndex((mugiwara) => mugiwara.id == id);
+  return mugiwaras.splice(mugiwaraIndex, 1);
+};
+
 module.exports = {
   findAllMugiwarasService,
   findByIdMugiwaraService,
+  createMugiwaraService,
+  updateMugiwaraService,
+  deleteMugiwaraService,
 };
