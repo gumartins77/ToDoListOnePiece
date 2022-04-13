@@ -1,0 +1,23 @@
+{
+  "name": "todolistonepiece",
+  "version": "1.0.0",
+  "description": "ToDoListOnePiece",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gumartins77/ToDoListOnePiece.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gumartins77/ToDoListOnePiece/issues"
+  },
+  "homepage": "https://github.com/gumartins77/ToDoListOnePiece#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
