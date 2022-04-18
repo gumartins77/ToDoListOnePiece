@@ -7,8 +7,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
 app.use('/mugiwaras', routes);
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(
+    `Servidor rodando em http://localhost:${port}/mugiwaras/find-mugiwaras`,
+  );
 });

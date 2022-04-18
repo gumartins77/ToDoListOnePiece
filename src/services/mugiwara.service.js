@@ -150,8 +150,7 @@ const findByIdMugiwaraService = (paramId) => {
 };
 
 const createMugiwaraService = (newMugiwara) => {
-  const newId = mugiwaras.length + 1;
-  newMugiwara.id = newId;
+  newMugiwara.id = mugiwaras.length + 1;
   mugiwaras.push(newMugiwara);
   return newMugiwara;
 };
