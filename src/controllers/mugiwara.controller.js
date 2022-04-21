@@ -1,18 +1,19 @@
 const mugiwarasService = require('../services/mugiwara.service');
+const mongoose = require('mongoose');
 
 const findAllMugiwarasController = async (req, res) => {
-  const mugiwaras = await mugiwarasService.findAllMugiwarasService();
-  if (mugiwaras.length == 0) {
+  const allMugiwaras = await mugiwarasService.findAllMugiwarasService();
+  if (allMugiwaras.length == 0) {
     return res
       .status(404)
       .send({ message: 'Não existe nenhum Mugiwara cadastrado!' });
   }
-  res.send(mugiwaras);
+  res.send(allMugiwaras);
 };
 
 const findByIdMugiwaraController = async (req, res) => {
   const chosenMugiwara = await mugiwarasService.findByIdMugiwaraService(
-    Number(req.params.id),
+    req.params.id,
   );
   if (!chosenMugiwara) {
     return res.status(404).send({ message: 'Mugiwara não encontrado!' });
@@ -21,13 +22,16 @@ const findByIdMugiwaraController = async (req, res) => {
 };
 
 const createMugiwaraController = async (req, res) => {
-  await res.send(mugiwarasService.createMugiwaraService(req.body));
+  const createMugiwara = await mugiwarasService.createMugiwaraService(req.body);
+  res.status(201).send(createMugiwara);
 };
 
 const updateMugiwaraController = async (req, res) => {
-  await res.send(
-    mugiwarasService.updateMugiwaraService(Number(req.params.id), req.body),
+  const updateMugiwara = await mugiwarasService.updateMugiwaraService(
+    req.params.id,
+    req.body,
   );
+  res.send(updateMugiwara);
 };
 
 const deleteMugiwaraController = async (req, res) => {
